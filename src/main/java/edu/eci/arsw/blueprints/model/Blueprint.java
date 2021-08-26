@@ -15,11 +15,13 @@ public class Blueprint {
     
     private String name=null;
             
-    public Blueprint(String author,String name,Point[] pnts){
+    public Blueprint(String author,String name,List<Point> pnts){
         this.author=author;
         this.name=name;
-        points=Arrays.asList(pnts);
+        points= pnts;
     }
+    
+    
          
     public Blueprint(String author, String name){
         this.name=name;
