@@ -27,12 +27,12 @@ public class InMemoryPersistenceTest {
         InMemoryBlueprintPersistence ibpp=new InMemoryBlueprintPersistence();
 
         Point[] pts0=new Point[]{new Point(40, 40),new Point(15, 15)};
-        Blueprint bp0=new Blueprint("mack", "mypaint",Arrays.asList(pts0));
+        Blueprint bp0=new Blueprint("mack", "mypaint",pts0);
         
         ibpp.saveBlueprint(bp0);
         
         Point[] pts=new Point[]{new Point(0, 0),new Point(10, 10)};
-        Blueprint bp=new Blueprint("john", "thepaint",Arrays.asList(pts));
+        Blueprint bp=new Blueprint("john", "thepaint",pts);
         
         ibpp.saveBlueprint(bp);
         
@@ -48,7 +48,7 @@ public class InMemoryPersistenceTest {
         InMemoryBlueprintPersistence ibpp=new InMemoryBlueprintPersistence();
         
         Point[] pts=new Point[]{new Point(0, 0),new Point(10, 10)};
-        Blueprint bp=new Blueprint("john", "thepaint",Arrays.asList(pts));
+        Blueprint bp=new Blueprint("john", "thepaint",pts);
         
         try {
             ibpp.saveBlueprint(bp);
@@ -57,7 +57,7 @@ public class InMemoryPersistenceTest {
         }
         
         Point[] pts2=new Point[]{new Point(10, 10),new Point(20, 20)};
-        Blueprint bp2=new Blueprint("john", "thepaint",Arrays.asList(pts2));
+        Blueprint bp2=new Blueprint("john", "thepaint",pts2);
 
         try{
             ibpp.saveBlueprint(bp2);

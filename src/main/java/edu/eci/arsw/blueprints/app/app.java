@@ -28,7 +28,7 @@ public class app {
         BlueprintsServices service = ac.getBean(BlueprintsServices.class);
         //agregar blueprint
         Point[] pts=new Point[]{new Point(50, 140),new Point(50, 115)};
-        Blueprint bp=new Blueprint("posso", "plano",Arrays.asList(pts));
+        Blueprint bp=new Blueprint("posso", "plano",pts);
         service.addNewBlueprint(bp);
         //cosultar blueprint
         System.out.println(service.getBlueprint("posso", "plano").toString());

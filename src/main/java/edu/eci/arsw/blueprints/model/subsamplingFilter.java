@@ -6,10 +6,8 @@
 package edu.eci.arsw.blueprints.model;
 
 import edu.eci.arsw.blueprints.persistence.impl.Tuple;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 /**
  *
@@ -18,20 +16,12 @@ import java.util.Set;
 public class subsamplingFilter implements Filter{
 
     @Override
-    public Set<Blueprint> filterPoints(Set<Blueprint> bps) {
-        Set ans = new HashSet();
-        for(Blueprint bp : bps){
-                List<Point> origins = bp.getPoints();
-                List<Point> news = new ArrayList();
-                for(int i=0;i<origins.size();i++){
-                    if(i%2==0) news.add(origins.get(i));
-                }
-                ans.add(new Blueprint(bp.getAuthor(),bp.getName(),news));
-                
+    public Blueprint filterPoints(Blueprint bp) {
+        List<Point> origins = bp.getPoints();
+        ArrayList<Point> news = new ArrayList<Point>();
+        for(int i=0;i<origins.size();i++){
+            if(i%2==0) news.add(origins.get(i));
         }
-        
-        return ans;
+        return new Blueprint(bp.getAuthor(),bp.getName(),news);
     }
-    
-    
 }

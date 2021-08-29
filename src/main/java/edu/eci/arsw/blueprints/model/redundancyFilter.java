@@ -5,6 +5,8 @@
  */
 package edu.eci.arsw.blueprints.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,12 +14,14 @@ import java.util.Set;
  * @author Home
  */
 public class redundancyFilter implements Filter{
-
-
-
     @Override
-    public Set<Blueprint> filterPoints(Set<Blueprint> bps) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Blueprint filterPoints(Blueprint bp) {
+        List<Point> origins = bp.getPoints();
+        ArrayList<Point> news = new ArrayList<Point>();
+        for(int i=0;i<origins.size()-1;i++){
+            if(!(origins.get(i).toString().equals(origins.get(i+1).toString()))) news.add(origins.get(i));
+        }
+        return new Blueprint(bp.getAuthor(),bp.getName(),news);
     }
     
 }

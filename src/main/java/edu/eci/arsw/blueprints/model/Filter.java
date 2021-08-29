@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public interface Filter {
     
-    public Set<Blueprint> filterPoints(Set<Blueprint> bps);
+    public Blueprint filterPoints(Blueprint bps);
     
     
 }

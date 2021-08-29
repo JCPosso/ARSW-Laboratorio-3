@@ -33,13 +33,13 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
     public InMemoryBlueprintPersistence() {
         //load stub data
         Point[] pts=new Point[]{new Point(140, 140),new Point(115, 115)};
-        Blueprint bp=new Blueprint("_authorname_", "_bpname_ ",Arrays.asList(pts));
+        Blueprint bp=new Blueprint("_authorname_", "_bpname_ ",pts);
         blueprints.put(new Tuple<>(bp.getAuthor(),bp.getName()), bp);
         
         
         
         pts=new Point[]{new Point(50, 140),new Point(50, 115)};
-        bp=new Blueprint("damian", "plano2 ",Arrays.asList(pts));
+        bp=new Blueprint("damian", "plano2 ",pts);
         blueprints.put(new Tuple<>(bp.getAuthor(),bp.getName()), bp);
         
     }    
