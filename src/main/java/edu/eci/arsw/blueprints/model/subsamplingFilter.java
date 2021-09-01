@@ -8,11 +8,16 @@ package edu.eci.arsw.blueprints.model;
 import edu.eci.arsw.blueprints.persistence.impl.Tuple;
 
 import java.util.*;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Home
  */
+
+@Component
+@Qualifier("subsamplingFilter")
 public class subsamplingFilter implements Filter{
 
     @Override

@@ -6,6 +6,7 @@
 package edu.eci.arsw.blueprints.services;
 
 import edu.eci.arsw.blueprints.model.Blueprint;
+import edu.eci.arsw.blueprints.model.Filter;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
@@ -25,10 +26,19 @@ import org.springframework.stereotype.Service;
 @Service
 @Qualifier("BlueprintsServices")
 public class BlueprintsServices {
-   
+    
+    @Autowired
+    @Qualifier("redundancyFilter")
+    Filter filter;
+
     @Autowired
     @Qualifier("InMemoryBlueprintPersistence")
     BlueprintsPersistence bpp;
+    
+    
+    
+    
+    
     
     public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException{
         bpp.saveBlueprint(bp);
@@ -61,6 +71,10 @@ public class BlueprintsServices {
     
     public void talk(){
         bpp.talk();
+    }
+    
+    public Blueprint filterPoints(Blueprint bp){
+        return filter.filterPoints(bp);
     }
     
 }

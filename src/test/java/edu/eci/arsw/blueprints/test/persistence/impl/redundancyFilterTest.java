@@ -3,16 +3,20 @@ package edu.eci.arsw.blueprints.test.persistence.impl;
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.model.redundancyFilter;
+import edu.eci.arsw.blueprints.services.BlueprintsServices;
 import org.junit.Test;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class redundancyFilterTest {
     @Test
     public void filterRepeated() {
-        redundancyFilter prueba = new redundancyFilter();
+        ApplicationContext ac = new ClassPathXmlApplicationContext("SpringContext.xml");
+        BlueprintsServices prueba = ac.getBean(BlueprintsServices.class);
         Point points[] = {
                 new Point(1,2),
                 new Point(1,2),

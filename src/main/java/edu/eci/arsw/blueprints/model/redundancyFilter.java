@@ -8,11 +8,15 @@ package edu.eci.arsw.blueprints.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  *
  * @author Home
  */
+@Component
+@Qualifier("redundancyFilter")
 public class redundancyFilter implements Filter{
     @Override
     public Blueprint filterPoints(Blueprint bp) {
